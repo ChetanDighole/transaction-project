@@ -1,8 +1,10 @@
 const express = require('express')
-const { GetBalance } = require('../controller/account.controller')
+const { GetBalance, Transfer } = require('../controller/account.controller')
+const authMiddleware = require('../middlewares/auth.middelware')
 
 const accountRout = express.Router()
 
-accountRout.post('/balance', GetBalance)
+accountRout.get('/balance', authMiddleware, GetBalance)
+accountRout.post('/transfer', authMiddleware, Transfer)
 
 module.exports = accountRout
