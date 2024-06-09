@@ -1,9 +1,15 @@
 const users = require('../models/userSchema.js')
 
-exports.Search = async (req,res) => {
-    const { text } = req.body
+exports.Search = async (req, res) => {
+
+    const text = req.query.filter
+
+    if (text === "") {
+        return
+    }
+
     const data = await users.find({
-        $or:[
+        $or: [
             {
                 firstName: { $regex: text, $options: 'i' }
             },
