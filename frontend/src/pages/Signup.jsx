@@ -30,7 +30,7 @@ function Signup() {
                 }} placeholder="Doe" label={"Last Name"} />
                 <InputBox onChange={e => {
                     setUsername(e.target.value);
-                }} placeholder="harkirat@gmail.com" label={"Email"} />
+                }} placeholder="xyz@gmail.com" label={"Email"} />
                 <InputBox onChange={(e) => {
                     setPassword(e.target.value)
                 }} placeholder="123456" label={"Password"} />
