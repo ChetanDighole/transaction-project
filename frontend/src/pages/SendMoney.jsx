@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from "axios";
 import { useState } from 'react';
+import { utils } from '../assets/utils';
 
 function SendMoney() {
 
@@ -60,7 +61,7 @@ function SendMoney() {
                             //     navigate('/dashboard')
                             // }
                             try {
-                                const res = await axios.post("http://localhost:4000/api/v1/account/transfer", {
+                                const res = await axios.post(utils.BASE_URL + "/api/v1/account/transfer", {
                                     to: id,
                                     ammount: amount
                                 }, {

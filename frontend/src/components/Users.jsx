@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Button } from "./Button"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { utils } from "../assets/utils";
 
 export const Users = () => {
     // Replace with backend call
@@ -10,7 +10,7 @@ export const Users = () => {
     const [filter, setFilter] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:4000/api/v1/search?filter=" + filter, { headers: { Authorization: "Bearer " + localStorage.getItem('token') } })
+        axios.get(utils.BASE_URL + "/api/v1/search?filter=" + filter, { headers: { Authorization: "Bearer " + localStorage.getItem('token') } })
             .then(response => {
                 setUsers(response.data)
             })
